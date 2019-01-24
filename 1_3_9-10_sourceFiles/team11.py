@@ -6,9 +6,11 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Isaiah&Nethanial' # Only 10 chars displayed.
+team_name = 'isaiah&nethanial' # Only 10 chars displayed.
 strategy_name = 'b until c'
 strategy_description = 'betrays unless enemy colludes in last 10 moves'
+
+import random
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -24,5 +26,7 @@ def move(my_history, their_history, my_score, their_score):
         for result in their_history[-10:]:
             if result == 'c':
                 return 'c'
+    elif random.randint(1,3) == 3:
+        return 'c'
     else:
         return 'b'
